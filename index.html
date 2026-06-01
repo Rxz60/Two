@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>🔥 محرك بحث سكربتات روبلكس</title>
+<title> 🫯 بحث سكربتات 🫯</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap');
 *{
@@ -13,14 +13,56 @@ box-sizing:border-box;
 }
 body{
 font-family:'Cairo',sans-serif;
-background:
-radial-gradient(circle at top,#220000,#000000 50%);
+background:#000;
 min-height:100vh;
-padding:25px;
 overflow-x:hidden;
+padding:25px;
 color:white;
 }
-/* خلفية حمراء غامقة */
+/* الخلفية */
+.background-image{
+position:fixed;
+inset:0;
+background-image:url("https://raw.githubusercontent.com/Rxz60/Rxz/refs/heads/main/EF77941C-14BB-4217-8EC0-01296F709A5B.png");
+background-size:cover;
+background-position:center;
+opacity:.13;
+z-index:0;
+filter:
+blur(2px)
+brightness(.4)
+saturate(1.5);
+}
+/* الساعة الدوارة */
+.spinning-clock{
+position:fixed;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+width:750px;
+height:750px;
+object-fit:contain;
+opacity:.12;
+pointer-events:none;
+z-index:1;
+animation:spin 18s linear infinite;
+filter:
+drop-shadow(0 0 50px rgba(255,0,0,.8))
+drop-shadow(0 0 120px rgba(255,0,0,.4));
+}
+@keyframes spin{
+0%{
+transform:
+translate(-50%,-50%)
+rotate(0deg);
+}
+100%{
+transform:
+translate(-50%,-50%)
+rotate(360deg);
+}
+}
+/* طبقة الوهج */
 .bg{
 position:fixed;
 inset:0;
@@ -99,7 +141,8 @@ inset 0 0 30px rgba(255,0,0,.15);
 width:180px;
 border:none;
 border-radius:28px;
-background:linear-gradient(180deg,#ff0000,#8b0000);
+background:
+linear-gradient(180deg,#ff0000,#8b0000);
 color:white;
 font-size:30px;
 font-weight:900;
@@ -171,14 +214,17 @@ background:#000;
 border:1px solid #300000;
 border-radius:18px;
 padding:16px;
-height:170px;
+height:260px;
 overflow:auto;
-font-size:13px;
-line-height:1.7;
+font-size:12px;
+line-height:1.8;
 direction:ltr;
 text-align:left;
 margin-bottom:18px;
 color:#ffb3b3;
+white-space:pre-wrap;
+word-break:break-word;
+font-family:monospace;
 }
 .copy-btn{
 width:100%;
@@ -224,10 +270,22 @@ flex-direction:column;
 width:100%;
 height:80px;
 }
+.spinning-clock{
+width:500px;
+height:500px;
+}
 }
 </style>
 </head>
 <body>
+<!-- الخلفية -->
+<div class="background-image"></div>
+<!-- الساعة -->
+<img
+class="spinning-clock"
+src="https://raw.githubusercontent.com/Rxz60/Rxz/refs/heads/main/EE8D4D5F-F7F5-4281-8C9B-BBB314EB2A93.png"
+>
+<!-- الوهج -->
 <div class="bg"></div>
 <div class="wrap">
 <div class="logo">
@@ -297,7 +355,7 @@ ${script.title}
 👁️ ${script.views || 0} مشاهدة
 </div>
 <div class="script-box">
-${code}
+<pre>${code}</pre>
 </div>
 <button
 class="copy-btn"
